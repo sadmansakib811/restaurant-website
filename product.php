@@ -2,7 +2,7 @@
 // product.php - Display details of a single food item
 
 require 'db.php';
-
+include 'navbar.php';
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 $stmt = $pdo->prepare("SELECT * FROM food_items WHERE id = ?");
 $stmt->execute([$id]);

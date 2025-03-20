@@ -2,7 +2,7 @@
 // signup.php - User registration form
 
 require 'db.php';
-
+include 'navbar.php';
 $message = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
