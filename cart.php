@@ -1,9 +1,9 @@
 <?php
-// cart.php - Handle cart operations and display the cart
-
 session_start();
 require 'db.php';
-include 'navbar.php';
+
+// Process POST requests before any output is sent
+
 // Add item to cart
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_to_cart'])) {
     $food_id = intval($_POST['food_id']);
@@ -30,6 +30,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['remove'])) {
     header('Location: cart.php');
     exit;
 }
+
+// Now that POST logic is complete and no output has been sent, include HTML output
+include 'navbar.php';
 
 // Retrieve food items for those in the cart
 $cart_items = [];
@@ -95,7 +98,7 @@ if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0) {
         <?php endif; ?>
         <div class="mt-4">
             <a href="index.php" class="btn btn-secondary">Continue Shopping</a>
-            <button class="btn btn-primary">Checkout</button>
+            <a href="checkout.php" class="btn btn-primary">Checkout</a>
         </div>
     </div>
 </body>

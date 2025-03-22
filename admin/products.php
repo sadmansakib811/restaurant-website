@@ -38,7 +38,8 @@ $products = $stmt->fetchAll();
 <head>
     <meta charset="UTF-8">
     <title>Manage Products</title>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
     <div class="container mx-auto py-4">

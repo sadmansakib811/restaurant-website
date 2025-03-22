@@ -1,4 +1,3 @@
-<!-- navbar.php -->
 <nav class="navbar bg-base-100 shadow-sm px-4">
   <!-- Left side: Logo / Brand -->
   <div class="flex-1">
@@ -30,10 +29,9 @@
                   0a2 2 0 100 4 2 2 0 000-4zm-8
                   2a2 2 0 11-4 0 2 2 0 014 0z" />
           </svg>
-          <!-- Example: If you have cart count in session, display it here -->
+          <!-- Show cart count if available -->
           <span class="badge badge-sm indicator-item">
             <?php
-              // Example: if you track cart quantity in $_SESSION['cart']
               echo isset($_SESSION['cart']) 
                    ? array_sum($_SESSION['cart']) 
                    : 0;
@@ -44,14 +42,14 @@
       <div tabindex="0" class="card card-compact dropdown-content w-52 bg-base-100 shadow">
         <div class="card-body">
           <span class="text-lg font-bold">
-            Cart Items: 
+            Cart Items:
             <?php
               echo isset($_SESSION['cart']) 
                    ? array_sum($_SESSION['cart']) 
                    : 0;
             ?>
           </span>
-          <!-- You could show a subtotal if you like -->
+          <!-- Subtotal or other cart info could go here -->
           <span class="text-info">Subtotal: $XYZ</span>
           <div class="card-actions">
             <a href="cart.php" class="btn btn-primary btn-block">View cart</a>
@@ -60,29 +58,39 @@
       </div>
     </div>
 
-    <!-- User dropdown (avatar/profile/login) -->
-    <div class="dropdown dropdown-end">
-      <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-        <div class="w-10 rounded-full">
-          <!-- Display a default avatar or user's profile picture if available -->
-          <img 
-            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-            alt="User Avatar"
-          />
-        </div>
-      </label>
-      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-        <?php if (!empty($_SESSION['user'])): ?>
-          <!-- If user is logged in -->
-          <li><a href="#">Profile</a></li>
+    <!-- User dropdown (username/profile/login) -->
+    <?php if (!empty($_SESSION['user'])): ?>
+      <!-- If user is logged in, show their username -->
+      <div class="dropdown dropdown-end">
+        <label tabindex="0" class="btn btn-ghost normal-case">
+          <?php echo htmlspecialchars($_SESSION['user']['username']); ?>
+          <!-- Optional small arrow icon -->
+          <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M19 9l-7 7-7-7" />
+          </svg>
+        </label>
+        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+          <li><a href="profile.php">Profile</a></li>
           <li><a href="#">Settings</a></li>
           <li><a href="logout.php">Logout</a></li>
-        <?php else: ?>
-          <!-- If user is not logged in -->
+        </ul>
+      </div>
+    <?php else: ?>
+      <!-- If user is not logged in -->
+      <div class="dropdown dropdown-end">
+        <label tabindex="0" class="btn btn-ghost normal-case">
+          Guest
+          <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M19 9l-7 7-7-7" />
+          </svg>
+        </label>
+        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
           <li><a href="login.php">Login</a></li>
           <li><a href="signup.php">Sign Up</a></li>
-        <?php endif; ?>
-      </ul>
-    </div>
+        </ul>
+      </div>
+    <?php endif; ?>
   </div>
 </nav>

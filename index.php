@@ -19,6 +19,22 @@ include 'navbar.php';
 </head>
 <body>
     <div class="container mx-auto py-4">
+    <div
+  class="hero min-h-screen"
+  style="background-image: url(assets/uploads/05.png);">
+  <div class="hero-overlay"></div>
+  <div class="hero-content text-neutral-content text-center">
+    <div class="max-w-md">
+      <h1 class="mb-5 text-5xl font-bold">Hello there</h1>
+      <p class="mb-5">
+        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
+        quasi. In deleniti eaque aut repudiandae et a id nisi.
+      </p>
+    <a href="products.php">  <button class="btn btn-primary">Get Started</button></a>
+    </div>
+  </div>
+</div>
+
         <h1 class="text-4xl font-bold mb-4">Our Menu</h1>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <?php foreach ($foods as $food): ?>

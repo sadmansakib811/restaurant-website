@@ -6,7 +6,7 @@ if (!isset($_SESSION['admin_logged_in'])) {
     exit;
 }
 require '../db.php'; // Include DB connection from parent directory
-
+include 'navbar.php';
 $message = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

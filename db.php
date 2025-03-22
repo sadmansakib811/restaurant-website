@@ -1,10 +1,10 @@
 <?php
 // db.php - Database connection using PDO
 
-$host = 'localhost';
+$host = 'db';
 $db   = 'restaurant_db'; 
 $user = 'root';            
-$pass = '';                
+$pass = 'example';                
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
